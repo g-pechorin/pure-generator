@@ -40,7 +40,7 @@ name := "pureGenerator"
 
 enablePlugins(SbtPlugin)
 
-libraryDependencies += "com.github.g-pechorin" % "minibase" % "0f8437c"
+libraryDependencies += "com.github.g-pechorin" % "minibase" % "f93287f"
 
 lazy val all =
 	Seq(Compile, Test).flatMap {
