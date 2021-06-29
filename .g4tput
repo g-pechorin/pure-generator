@@ -1,0 +1,6 @@
+{ver:1}
+steps:
+	- (sbt) test
+needs:
+	- peterlavalle-minibase.sbt/
+hub: git@github.com:g-pechorin/pure-generator.git
