@@ -41,6 +41,7 @@ name := "pureGenerator"
 enablePlugins(SbtPlugin)
 sbtPlugin := true
 publishMavenStyle := true
+publishM2Configuration := publishM2Configuration.value.withResolverName(LocalMavenResolverForSbtPlugins.name)
 
 libraryDependencies += "com.github.g-pechorin" % "minibase" % "2a0eec0"
 
