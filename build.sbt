@@ -39,6 +39,8 @@ resolvers += "jitpack" at "https://jitpack.io"
 name := "pureGenerator"
 
 enablePlugins(SbtPlugin)
+sbtPlugin := true
+publishMavenStyle := true
 
 libraryDependencies += "com.github.g-pechorin" % "minibase" % "2a0eec0"
 
