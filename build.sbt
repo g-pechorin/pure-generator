@@ -36,25 +36,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 // end of standard stuff
 /// ---
 
-name := "pureGenerator"
-
-enablePlugins(SbtPlugin)
-sbtPlugin := true
-publishMavenStyle := true
-lazy val LocalMavenResolverForSbtPlugins = {
-import sbt.io.Path.userHome
-import sbt.librarymanagement.Patterns
-
-import scala.collection.JavaConverters.asScalaBufferConverter
-  // remove scala and sbt versions from the path, as it does not work with jitpack
-  val pattern  = "[organisation]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]"
-  val name     = "local-maven-for-sbt-plugins"
-  val location = userHome / ".m2" / "repository"
-  Resolver.file(name, location)(Patterns().withArtifactPatterns(Vector(pattern)))
-}
-publishM2Configuration := publishM2Configuration.value.withResolverName(LocalMavenResolverForSbtPlugins.name)
-
-libraryDependencies += "com.github.g-pechorin" % "minibase" % "2a0eec0"
+// name := "pureGenerator"
 
 lazy val all =
 	Seq(Compile, Test).flatMap {
@@ -66,12 +48,25 @@ lazy val all =
 	}
 
 lazy val root =
+	(project in file("fake"))
+		.aggregate(fake)
+		.dependsOn(fake)
+		.settings(
+			name := "pureGenerator"
+		)
+
+lazy val fake =
 	(project in file("."))
 		.settings(all: _ *)
-
-libraryDependencies ++=
-	Seq(
-		"com.lihaoyi" %% "fastparse" % "2.2.2",
-		"org.scalatest" %% "scalatest" % conf("scala.test") % Test,
-		// "org.scala-sbt" %% "io" % conf("sbt.version"),
-	)
+		.dependsOn(RootProject(hgRoot / "peterlavalle-minibase.sbt"))
+		.enablePlugins(SbtPlugin)
+		.settings(
+			sbtPlugin := true,
+			publishMavenStyle := true,
+			libraryDependencies ++=
+				Seq(
+					"com.lihaoyi" %% "fastparse" % "2.2.2",
+					"org.scalatest" %% "scalatest" % conf("scala.test") % Test,
+					// "org.scala-sbt" %% "io" % conf("sbt.version"),
+				),
+		)
