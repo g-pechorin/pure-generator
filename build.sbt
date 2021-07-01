@@ -42,7 +42,6 @@ enablePlugins(SbtPlugin)
 sbtPlugin := true
 publishMavenStyle := true
 lazy val LocalMavenResolverForSbtPlugins = {
-import Libs._
 import sbt.io.Path.userHome
 import sbt.librarymanagement.Patterns
 
