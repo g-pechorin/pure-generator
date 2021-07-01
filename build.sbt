@@ -42,6 +42,11 @@ enablePlugins(SbtPlugin)
 sbtPlugin := true
 publishMavenStyle := true
 lazy val LocalMavenResolverForSbtPlugins = {
+import Libs._
+import sbt.io.Path.userHome
+import sbt.librarymanagement.Patterns
+
+import scala.collection.JavaConverters.asScalaBufferConverter
   // remove scala and sbt versions from the path, as it does not work with jitpack
   val pattern  = "[organisation]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]"
   val name     = "local-maven-for-sbt-plugins"
