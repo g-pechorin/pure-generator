@@ -36,7 +36,9 @@ resolvers += "jitpack" at "https://jitpack.io"
 // end of standard stuff
 /// ---
 
-// name := "pureGenerator"
+name := "pureGenerator"
+
+libraryDependencies += "com.github.g-pechorin" % "minibase" % "335ac18"
 
 lazy val all =
 	Seq(Compile, Test).flatMap {
@@ -49,24 +51,11 @@ lazy val all =
 
 lazy val root =
 	(project in file("."))
-		.aggregate(fake)
-		.dependsOn(fake)
-		.settings(
-			name := "pureGenerator"
-		)
-
-lazy val fake =
-	(project in file("fake"))
 		.settings(all: _ *)
-	.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "b342f40")
-		.enablePlugins(SbtPlugin)
-		.settings(
-			sbtPlugin := true,
-			publishMavenStyle := true,
-			libraryDependencies ++=
-				Seq(
-					"com.lihaoyi" %% "fastparse" % "2.2.2",
-					"org.scalatest" %% "scalatest" % conf("scala.test") % Test,
-					// "org.scala-sbt" %% "io" % conf("sbt.version"),
-				),
-		)
+
+libraryDependencies ++=
+	Seq(
+		"com.lihaoyi" %% "fastparse" % "2.2.2",
+		"org.scalatest" %% "scalatest" % conf("scala.test") % Test,
+		// "org.scala-sbt" %% "io" % conf("sbt.version"),
+	)
