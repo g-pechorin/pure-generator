@@ -48,7 +48,7 @@ lazy val all =
 	}
 
 lazy val root =
-	(project in file("fake"))
+	(project in file("."))
 		.aggregate(fake)
 		.dependsOn(fake)
 		.settings(
@@ -56,11 +56,11 @@ lazy val root =
 		)
 
 lazy val fake =
-	(project in file("."))
+	(project in file("fake"))
 		.settings(all: _ *)
-		// .dependsOn(RootProject(hgRoot / "peterlavalle-minibase.sbt"))
+	.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "0cd528e")
 		.enablePlugins(SbtPlugin)
-		.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "2a0eec0",
+		.settings(
 			sbtPlugin := true,
 			publishMavenStyle := true,
 			libraryDependencies ++=
