@@ -58,7 +58,7 @@ lazy val root =
 lazy val fake =
 	(project in file("fake"))
 		.settings(all: _ *)
-	.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "0cd528e")
+	.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "b342f40")
 		.enablePlugins(SbtPlugin)
 		.settings(
 			sbtPlugin := true,
