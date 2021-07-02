@@ -58,9 +58,9 @@ lazy val root =
 lazy val fake =
 	(project in file("."))
 		.settings(all: _ *)
-		.dependsOn(RootProject(hgRoot / "peterlavalle-minibase.sbt"))
+		// .dependsOn(RootProject(hgRoot / "peterlavalle-minibase.sbt"))
 		.enablePlugins(SbtPlugin)
-		.settings(
+		.settings(libraryDependencies += "com.github.g-pechorin" % "minibase" % "2a0eec0",
 			sbtPlugin := true,
 			publishMavenStyle := true,
 			libraryDependencies ++=
