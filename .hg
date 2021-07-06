@@ -1,15 +1,16 @@
-{
- "bookmarks": [],
- "date": [
-  1624994944,
-  -3600
- ],
- "phase": "draft",
- "node": "075a8ee72eaf1af770db76fa63bd2bc06100fc50",
- "rev": 11873,
- "branch": "pure-generator",
- "user": "Peter LaValle <peter.lavalle@gmail.com>",
- "desc": "fixxed",
- "parents": ["e698dc429f424574b9e2623aca8a88bd8521b2f2"],
- "tags": ["tip"]
-}
+g4tput
+bookmarks:
+branch: nonode
+date:
+	-1625580054
+	--3600
+desc: "Merge with sand"
+node: 00b24f5e30ec8152d9c0ae6f744ec68701e6c19b
+parents:
+	-6b83c71961fac988d98a9a8d33344d1a7c2af9f6
+	-f2cba51a9492bf9c111ae717971adeb7ba5ac366
+phase: draft
+rev: 11935
+tags:
+	-tip
+user: "Peter LaValle <peter.lavalle@gmail.com>"
