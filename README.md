@@ -15,3 +15,7 @@ It should also allow for types that would otherwise need to be wrapped in an ugl
 
 I'm taking the opportunity to push-forward with `sample` and `opaque` types, and, a "primitive" format.
 This should simplify certain constructs; such as "clocks" as they're no longer required to wrap themselves.
+
+# TODO
+
+- i don't like the `Receiver` thingies anymore and it'd be cool if they were hemmed out
