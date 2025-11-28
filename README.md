@@ -1,4 +1,6 @@
-
+> ```
+> 2025-11-28
+> Peter Says; i'm not expecting to work on this. the intellectual/social effort to push pure-code exceeds the effort coordinating development with trad-code
 
 This is the project for generating the FRP/OOP bindings between pureGen's shell/agent.
 
